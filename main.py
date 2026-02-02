@@ -10,10 +10,21 @@ root.title("Library Management System")
 #functions
 def add_book():
     pass
-def view_books():
+def search_book():
     pass
 def rented_book():
     pass
+
+#search book menu
+search_frame=Frame(root, bg='#c0c0c0')
+
+
+
+
+
+
+
+
 
 
 #Add Book Menu
@@ -25,30 +36,46 @@ back_add=Button(up_add, text="Back", font=("Arial", 12),command=lambda:home_fram
 back_add.pack(padx=10, pady=10,side=LEFT,fill=BOTH,expand=True,)
 home_add=Button(up_add, text="Home", font=("Arial", 12),command=lambda:home_frame.tkraise())
 home_add.pack(padx=10, pady=10,side=RIGHT,fill=BOTH,expand=True)
-down_add=Frame(add_frame, bg='white')
+down_add=Frame(add_frame, bg='#d9d9d9')
 down_add.pack(fill=BOTH, expand=True, padx=20, pady=(0,20))
 Label(down_add, text="Add Book Section", font=("Arial", 20, 'bold'), bg='white').pack(pady=(10,0))
 #entries
-add_entry=Frame(down_add, bg='red')
+add_entry=Frame(down_add, bg='#d9d9d9')
 add_entry.pack(expand=True,fill=BOTH,pady=(0,20),padx=20)
-add_entry_left=Frame(add_entry, bg='blue')
+add_entry_left=Frame(add_entry, bg='#d9d9d9')
 add_entry_left.pack(side=LEFT,expand=True,fill=BOTH,padx=20,pady=20)
-add_entry_right=Frame(add_entry, bg='blue')
+add_entry_right=Frame(add_entry, bg='#d9d9d9')
 add_entry_right.pack(side=RIGHT,expand=True,fill=BOTH,padx=20,pady=20)
-Label(add_entry_left, text="Book Title:", font=("Arial", 14)).pack(fill=BOTH, pady=10, anchor='e')
-Label(add_entry_left, text="Author Name:", font=("Arial", 14)).pack(fill=BOTH, pady=10, anchor='e')
-Label(add_entry_left, text="Genre:", font=("Arial", 14)).pack(fill=BOTH, pady=10, anchor='e')
-Label(add_entry_left, text="INBN No.:", font=("Arial", 14)).pack(fill=BOTH, pady=10, anchor='e')
-Label(add_entry_left, text="Book Year:", font=("Arial", 14)).pack(fill=BOTH, pady=10, anchor='e')
+Label(add_entry_left, text="Book Title:", font=("Arial", 14), bg='#d9d9d9').pack(fill=BOTH, pady=10, anchor='e')
+Label(add_entry_left, text="Author Name:", font=("Arial", 14), bg='#d9d9d9').pack(fill=BOTH, pady=10, anchor='e')
+Label(add_entry_left, text="Genre:", font=("Arial", 14), bg='#d9d9d9').pack(fill=BOTH, pady=10, anchor='e')
+Label(add_entry_left, text="INBN No.:", font=("Arial", 14), bg='#d9d9d9').pack(fill=BOTH, pady=10, anchor='e')
+Label(add_entry_left, text="Book Year:", font=("Arial", 14), bg='#d9d9d9').pack(fill=BOTH, pady=10, anchor='e')
 
+
+book_title_entry=Entry(add_entry_right, font=("Arial", 14))
+book_title_entry.pack(fill=BOTH, pady=11)
+author_name_entry=Entry(add_entry_right, font=("Arial", 14))
+author_name_entry.pack(fill=BOTH, pady=11)
 Genre=['Fantacy', 'Science Fiction', 'Mystery', 'Thriller', 'Romance', 'Westerns', 'Dystopian', 'Contemporary']
 sel_opt=StringVar()
 sel_opt.set(Genre[0])
 combo=Combobox(add_entry_right,textvariable=sel_opt, values=Genre,state='readonly')
-combo.pack(fill=BOTH, pady=10)
+combo.pack(fill=BOTH, pady=11)
+inbn_entry=Entry(add_entry_right, font=("Arial", 14))
+inbn_entry.pack(fill=BOTH, pady=11)
+book_year_entry=Entry(add_entry_right, font=("Arial", 14))
+book_year_entry.pack(fill=BOTH, pady=11)
 
+#add book button
 add_book_btn=Button(down_add, text="Add Book", font=("Arial", 16), command=add_book)
 add_book_btn.pack(pady=10)
+
+
+
+
+
+
 
 #main frame
 home_frame=Frame(root)
